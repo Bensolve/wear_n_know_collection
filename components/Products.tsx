@@ -1,6 +1,7 @@
 import React from 'react';
 import products, { Product } from '@/constants/product';
 import Image from 'next/image'
+import Link from 'next/link';
 
 
 const Products: React.FC = () => {
@@ -15,11 +16,15 @@ const Products: React.FC = () => {
           {products.map((product: Product) => (
             <div key={product.id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={product.imageSrc}
-                  alt={product.name}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                />
+                <Link href={`/product/${product.slug}`}>
+                  <Image
+                    src={product.imageSrc}
+                    alt={product.name}
+                    width={300}
+                    height={500}
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
+                </Link>
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
