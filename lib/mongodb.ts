@@ -4,7 +4,11 @@ if (!process.env.MONGODB_URI) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
 }
 
-const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URI;
+const uri = process.env.NODE_ENV === "production"
+  ? process.env.MONGODB_URI // Access Vercel's environment variable
+  : process.env.MONGODB_URI; // Use local MONGODB_URI from .env
+
 const options = {};
 
 let client;
