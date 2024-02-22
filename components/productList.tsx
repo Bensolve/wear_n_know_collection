@@ -18,7 +18,7 @@ interface ProductProps {
   }
   const ProductList: React.FC<ProductProps> = ({ products }) => {
     return (
-      <div className="bg-red-500">
+      <div className="">
         <h2 className="text-2xl">Top 10 Movies</h2>
         <ul>
           {products.map((product) => (

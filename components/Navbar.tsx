@@ -12,7 +12,8 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const iconPath = toggle ? "/assets/icons/close.svg" : "/assets/icons/menu.svg";
   return (
-    <header className="w-full">
+    <div className='bg-white sticky z-50 top-0 inset-x-0 h-16'>
+      <header className='relative bg-white'>
       <nav className="nav">
         <Link href="/" className="flex items-center gap-1">
           <Image
@@ -23,7 +24,7 @@ const Navbar = () => {
           />
 
           <p className="nav-logo">
-            Wear_N_<span className='text-primary'>Know </span>
+            Wear_N_<span className=''>Know </span>
           </p>
         </Link>
 
@@ -31,7 +32,7 @@ const Navbar = () => {
           {NAV_LINKS.map((nav, index) => (
             <li
               key={nav.id} // Using 'key' from your NAV_LINKS array
-              className={`font-poppins font-normal cursor-pointer text-[16px] ${active === nav.title ? "text-black" : "text-secondary"}
+              className={`font-poppins font-normal cursor-pointer text-[16px] ${active === nav.title ? "text-black" : ""}
                 } ${index === NAV_LINKS.length - 1 ? "mr-0" : "mr-10"}`}
               onClick={() => setActive(nav.title)}
             >
@@ -65,7 +66,7 @@ const Navbar = () => {
               {NAV_LINKS.map((nav, index) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-black" : "text-secondary"}
+                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-black" : ""}
                     } ${index === NAV_LINKS.length - 1 ? "mb-0" : "mb-4"}`}
                   onClick={() => setActive(nav.title)}
                 >
@@ -80,6 +81,8 @@ const Navbar = () => {
 
       </nav>
     </header>
+    </div>
+    
   )
 }
 

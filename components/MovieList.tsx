@@ -3,7 +3,7 @@
 interface Movie {
     // Define your movie type here based on your actual data structure
     _id:string;
-    name: string;
+    title: string;
     price: string;
   }
   
@@ -11,7 +11,7 @@ interface Movie {
     movies: Movie[];
   }
 interface MoviesProps {
-    movies: Array<{ name: string;  _id: string; price: string} & {}>;
+    movies: Array<{ title: string;  _id: string; price: string} & {}>;
   }
   const MovieList: React.FC<MoviesProps> = ({ movies }) => {
     return (
@@ -21,7 +21,7 @@ interface MoviesProps {
           {movies.map((movie) => (
             <li key={movie._id}>
               {/* Display movie details here */}
-              <h2>{movie.name}</h2>
+              <h2>{movie.title}</h2>
               <p>{movie.price}</p>
             </li>
           ))}
