@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import Products from '@/components/Products';
 import ProductList from '@/components/productList';
+import Hero from '@/components/hero';
+
 
 export default function Home() {
   const [product, setProducts] = useState([]);
@@ -22,6 +24,7 @@ export default function Home() {
   return (
     <div>
        {/* <Products /> */}
+      <Hero />
       <ProductList products={product}/>
     </div>
     

@@ -10,7 +10,7 @@ export async function GET(request: Request) {
             .collection("product")
             .find({})
             .sort({ metacritic: -1 })
-            .limit(1)
+            .limit(4)
             .toArray();
  
         return new Response(JSON.stringify(movies), {

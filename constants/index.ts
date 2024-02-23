@@ -8,7 +8,7 @@ export const NAV_LINKS = [
       title: "Women",
     },
     {
-      id: "men",
+      id: "/Men",
       title: "Men",
     },
     {
