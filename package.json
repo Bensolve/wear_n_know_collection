@@ -20,7 +20,9 @@
     "mongodb": "^6.3.0",
     "next": "14.0.4",
     "next-auth": "^5.0.0-beta.6",
+    "ra-data-json-server": "^4.16.12",
     "react": "^18",
+    "react-admin": "^4.16.12",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
