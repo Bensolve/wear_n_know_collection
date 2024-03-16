@@ -1,7 +1,9 @@
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-const AdminApp = dynamic(() => import("@/components/AdminApp"), { ssr: false });
+import React from 'react'
 
-const Admin: NextPage = () => <AdminApp />;
+const AminPage = () => {
+  return (
+    <div>AminPage</div>
+  )
+}
 
-export default Admin;
+export default AminPage
