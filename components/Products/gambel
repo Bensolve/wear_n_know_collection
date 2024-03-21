@@ -1,0 +1,16 @@
+ // Upload the image file to the server
+        // const formData = new FormData();
+        // formData.append('image', image[0]); // Assuming image is an array of files
+
+        // const imageResponse = await fetch('api/upload', {
+        //     method: 'POST',
+        //     body: formData,
+        // });
+
+        // if (!imageResponse.ok) {
+        //     throw new Error('Failed to upload image');
+        // }
+
+        // const { imageName } = await imageResponse.json();
+
+        // Store only the image name in the database

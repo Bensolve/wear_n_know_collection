@@ -1,5 +1,5 @@
 "use client";
-import { CardWrapper } from "./card-wrapper"
+import { CardWrapper } from "./card-wrapper";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -14,8 +14,15 @@ import {
     FormMessage
 } from
     "@/components/ui/form";
+import { useRouter } from "next/navigation";
+
+import { Button } from "@/components/ui/button"
+
+
+
 
 export const AddProductForm = () => {
+    const router = useRouter();
     const form = useForm<z.infer<typeof AddProductSchema>>(
         {
             resolver: zodResolver(AddProductSchema),
@@ -27,6 +34,30 @@ export const AddProductForm = () => {
 
         }
     )
+
+
+
+    const AddProduct = async (data: z.infer<typeof AddProductSchema>) => {
+        // console.log(data)
+        try {
+            const response = await fetch('/api/product', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Make sure to set appropriate headers
+                },
+                body: JSON.stringify(data), // Serialize the form data
+            });
+
+            if (response.ok) {
+                router.push('admin/products/');
+            } else {
+                console.error('Failed to add product:', await response.text());
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+      };
+
     return (
         <CardWrapper
             headerLabel="Welcome back"
@@ -36,7 +67,8 @@ export const AddProductForm = () => {
         >
             <Form {...form}>
                 <form
-                    onSubmit={form.handleSubmit(() => { })}
+                    // onSubmit={form.handleSubmit(() => { })}
+                    onSubmit={form.handleSubmit(AddProduct)}
                     className="space-y-6"
                 >
                     <div className="space-y-6">
@@ -62,11 +94,11 @@ export const AddProductForm = () => {
                             name="price"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Email </FormLabel>
+                                    <FormLabel>Price </FormLabel>
                                     <FormControl>
                                         <Input
                                             {...field}
-                                            placeholder="$50"
+                                            placeholder="50"
                                             type="name"
                                         />
                                     </FormControl>
@@ -79,19 +111,19 @@ export const AddProductForm = () => {
                             name="image"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Image </FormLabel>
+                                    <FormLabel>ImageName</FormLabel>
                                     <FormControl>
                                         <Input
                                             {...field}
-                                            placeholder=""
-                                            type="file"
+                                            placeholder="car.jpg"
+                                            type="name"
                                         />
                                     </FormControl>
                                 </FormItem>
                             )}
                         />
                     </div>
-
+                    <Button type="submit">Submit</Button>
                 </form>
             </Form>
         </CardWrapper>

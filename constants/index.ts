@@ -21,3 +21,12 @@ export const NAV_LINKS = [
     //   title: "Admin",
     // },
   ];
+
+  // types.ts
+
+export interface Product {
+  _id: string;
+  name: string;
+  price: string;
+  image: string;
+}

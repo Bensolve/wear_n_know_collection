@@ -12,9 +12,7 @@ interface Product {
 
 
 
-interface ProductProps {
-  products: Product[];
-}
+
 interface ProductProps {
   products: Array<{ name: string; _id: string; price: string; image: string } & {}>;
 }
