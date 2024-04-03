@@ -4,6 +4,16 @@ const nextConfig = {
         // Your environment variables here
         MONGODB_URI: process.env.MONGODB_URI,
       },
+    images: {
+        
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'firebasestorage.googleapis.com',
+            pathname: '**',
+          },
+        ]
+      },
 }
 
 module.exports = nextConfig

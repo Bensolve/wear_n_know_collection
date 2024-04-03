@@ -1,22 +1,11 @@
 // components/MovieList.tsx
 import Image from "next/image";
-
-
-interface Product {
-  // Define your product type here based on your actual data structure
-  _id: string;
-  name: string;
-  price: string;
-  image: string;
-}
+import { fetchLatestProducts } from "@/lib/data";
 
 
 
-
-interface ProductProps {
-  products: Array<{ name: string; _id: string; price: string; image: string } & {}>;
-}
-const ProductList: React.FC<ProductProps> = ({ products }) => {
+export default async function ProductList() { // Remove props
+  const products = await fetchLatestProducts();
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -29,11 +18,11 @@ const ProductList: React.FC<ProductProps> = ({ products }) => {
         
 
           {products.map((product) => (
-            <div key={product._id} className="group relative">
+            <div key={product._id.toString() as unknown as string} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
               
                 <Image
-                  src={`/assets/images/${product.image}`}
+                  src={product.image}
                   alt={product.name}
                   width={300}
                   height={300}
@@ -68,4 +57,4 @@ const ProductList: React.FC<ProductProps> = ({ products }) => {
   );
 };
 
-export default ProductList;
+// export default ProductList;

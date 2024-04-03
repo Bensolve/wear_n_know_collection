@@ -19,16 +19,16 @@ const menuItems = [
   {
     title: "Pages",
     list: [
-      {
-        title: "Dashboard",
-        path: "/admin",
-        icon: <MdDashboard />,
-      },
       // {
-      //   title: "Users",
-      //   path: "/dashboard/users",
-      //   icon: <MdSupervisedUserCircle />,
+      //   title: "Dashboard",
+      //   path: "/admin",
+      //   icon: <MdDashboard />,
       // },
+      {
+        title: "Users",
+        path: "/admin/users",
+        icon: <MdSupervisedUserCircle />,
+      },
       {
         title: "Products",
         path: "/admin/products",
@@ -85,13 +85,13 @@ const Sidebar =  () => {
       <div className={styles.user}>
         <Image
           className={styles.userImage}
-          src={"/noavatar.png"}
+          src={"/assets/images/noavatar.png"}
           alt=""
           width="50"
           height="50"
         />
         <div className={styles.userDetail}>
-          <span className={styles.username}>Marvin</span>
+          <span className={styles.username}>Getty</span>
           <span className={styles.userTitle}>Administrator</span>
         </div>
       </div>

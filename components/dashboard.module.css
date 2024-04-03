@@ -4,9 +4,11 @@
   
   .menu {
     flex: 1;
-    background-color: var(--bgSoft);
+    /* background-color: var(--bgSoft); */
     padding: 20px;
     min-height: 100vh;
+    border-radius: 2px;
+    border: .5px solid rgb(107, 107, 107);
   }
   
   .content {

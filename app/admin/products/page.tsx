@@ -1,112 +1,86 @@
-"use client";
-import React from 'react'
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@/components/Products/products.module.css";
+import Search from "@/components/search/search";
+import Pagination from "@/components/pagination/pagination";
+import { fetchProducts } from "@/lib/data";
+// import { deleteProduct } from "@/app/lib/actions";
 
-import { useEffect, useState } from 'react';
-import Products from '@/components/Products';
-import ProductList from '@/components/productList';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import styles from '@/components/Products/products.module.css'
-import { Product } from "@/constants/index";
+const ProductsPage = async ({   searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: number;
+  }; }) => {
+
+  const q = searchParams?.query || "";
+  const page = searchParams?.page || 1;
+  const { count, products } = await fetchProducts(q, page);
+
+  // ... rest of the component code remains the same
 
 
 
-interface AdminProductTableProps {
-  products: Product[];
-}
-
-
-const ProductPage : React.FC<AdminProductTableProps> = ({ products }) => {
-  const [fetchedProducts, setFetchedProducts] = useState<Product[]>([]);
-
-  // Effect hook to fetch products from the API
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        // Fetch products from the API endpoint
-        const response = await fetch('/api/product'); // Update with your actual API route
-        const data = await response.json();
-        setFetchedProducts(data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-
-    fetchProducts(); // Call the fetchProducts function when the component mounts
-  }, []);
   return (
-    // <div className='flex justify-between '>
-    //    <div>
-    //   <ProductList products={product} />
-    //   </div>
-    //   <div>
-    //   <Link href="/admin/products/add">
-    //     <Button>Add New</Button>
-    //   </Link>
-    //   </div>
-     
-     
-    // </div>
     <div className={styles.container}>
       <div className={styles.top}>
-        {/* <Search placeholder="Search for a product..." /> */}
-        <Link href="/admin/products/add">
+        <Search placeholder="Search for a product..." />
+        <Link href="/dashboard/products/add">
           <button className={styles.addButton}>Add New</button>
         </Link>
       </div>
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>Name</td>
+          <td>Name</td>
            
-            <td>Price</td>
-            <td>Action</td>
-          </tr>
+           <td>Price</td>
+           <td>Action</td>
+         </tr>
         </thead>
         <tbody>
-        {fetchedProducts.map((product) =>  (
-            <tr key={product._id}>
-              <td>
-                <div className={styles.product}>
-                  <Image
-                    src={`/assets/images/${product.image}`}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className={styles.productImage}
-                  />
-                  {product.name}
-                </div>
-              </td>
-             
-              <td>${product.price}</td>
+        {products.map((product) =>  (
+             <tr key={product._id.toString() as unknown as string}>
+
+             <td>
+               <div className={styles.product}>
+                 <Image
+                   src={product.image}
+                   alt=""
+                   width={40}
+                   height={40}
+                   className={styles.productImage}
+                 />
+                 {product.name}
+               </div>
+             </td>
             
+             <td>${product.price}</td>
            
-              <td>
-                <div className={styles.buttons}>
-                  <Link href={`/dashboard/products/${product._id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>
-                      View
-                    </button>
-                  </Link>
-                  <form >
-                    <input type="hidden" name="id" value={product._id} />
-                    <button className={`${styles.button} ${styles.delete}`}>
-                      Delete
-                    </button>
-                  </form>
-                </div>
-              </td>
-            </tr>
+          
+             <td>
+               <div className={styles.buttons}>
+                 <Link href={`/admin/products/${product._id}`}>
+                   <button className={`${styles.button} ${styles.view}`}>
+                     View
+                   </button>
+                 </Link>
+                 <form >
+                 <input type="hidden" name="id" value={product._id.toString()} />
+
+                   <button className={`${styles.button} ${styles.delete}`}>
+                     Delete
+                   </button>
+                 </form>
+               </div>
+             </td>
+           </tr>
           ))}
         </tbody>
       </table>
-      {/* <Pagination count={count} /> */}
+      <Pagination count={count} />
     </div>
+  );
+};
 
-
-  )
-}
-
-export default ProductPage
+export default ProductsPage;
