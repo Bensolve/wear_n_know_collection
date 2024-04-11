@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "@/components/Products/products.module.css";
 import Search from "@/components/search/search";
 import Pagination from "@/components/pagination/pagination";
-import { fetchProducts } from "@/lib/data";
+import { fetchproducts } from "@/lib/data";
 // import { deleteProduct } from "@/app/lib/actions";
 
 const ProductsPage = async ({   searchParams,
@@ -15,7 +15,7 @@ const ProductsPage = async ({   searchParams,
 
   const q = searchParams?.query || "";
   const page = searchParams?.page || 1;
-  const { count, products } = await fetchProducts(q, page);
+  const { count, products } = await fetchproducts(q, page);
 
   // ... rest of the component code remains the same
 
