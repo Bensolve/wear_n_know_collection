@@ -164,6 +164,14 @@ const page = async() => {
                                
                               </DropdownMenuItem>
                               </Link>
+                              <Link href = "/dashboard/product/id">
+                              <DropdownMenuItem>
+                            
+                                above
+                                
+                               
+                              </DropdownMenuItem>
+                              </Link>
                               <form action={deleteProduct}>
                              
 
