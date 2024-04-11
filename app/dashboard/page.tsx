@@ -1,10 +1,9 @@
-"use client";
-import { useRouter } from 'next/navigation'
+import React from 'react'
 
-const DashboardPage = () => {
-    const router = useRouter();
-    router.push('/dashboard/product')
-
+const DashBoardPage = () => {
+  return (
+    <div>DashBoardPage</div>
+  )
 }
 
-export default DashboardPage
+export default DashBoardPage
