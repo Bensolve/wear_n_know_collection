@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link'; // Import Link from Next.js
-import { fetchproducts } from '@/app/lib/data';
+import { fetchProducts } from '@/app/lib/data';
 import Image from 'next/image';
 
 const Products = async () => {
     // const q = searchParams?.q || "";
     // const page = searchParams?.page || 1;
-    const { count, products } = await fetchproducts();
+    const { count, products } = await fetchProducts();
 //   const products = [
 //     {
 //       id: "1",
