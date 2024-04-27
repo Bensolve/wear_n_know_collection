@@ -14,7 +14,7 @@ const images = [
 const BackgroundImages = () => {
   return (
     
-         <ImagesSlider className="h-[20rem] w-[25rem]" images={images}>
+         <ImagesSlider className="h-[20rem] w-[25rem] max-w-full mx-auto" images={images}>
           <motion.div
             initial={{
               opacity: 0,
