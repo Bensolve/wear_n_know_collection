@@ -80,7 +80,7 @@ function Navbar() {
               Dashboard
             </Link>
             <Link
-              href="#"
+              href="/dashboard"
               className="text-muted-foreground hover:text-foreground"
             >
               Orders

@@ -13,8 +13,8 @@ const images = [
 
 const BackgroundImages = () => {
   return (
-    <div>
-         <ImagesSlider className="h-[20rem] w-[30rem]" images={images}>
+    
+         <ImagesSlider className="h-[20rem] w-[25rem]" images={images}>
           <motion.div
             initial={{
               opacity: 0,
@@ -31,7 +31,7 @@ const BackgroundImages = () => {
           >
           </motion.div>
         </ImagesSlider>
-    </div>
+    
   )
 }
 

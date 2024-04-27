@@ -25,7 +25,7 @@ export default  function Home() {
             <Button>Shop Now</Button>
           </div>
         </div>
-        <BackgroundImages/>
+        <BackgroundImages />
       </div>
 
       
