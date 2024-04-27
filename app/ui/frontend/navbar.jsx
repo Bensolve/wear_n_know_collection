@@ -74,13 +74,13 @@ function Navbar() {
               <span className="sr-only"> Wear_n_know</span>
             </Link>
             <Link
-              href="#"
+               href="/dashboard"
               className="text-muted-foreground hover:text-foreground"
             >
               Dashboard
             </Link>
             <Link
-              href="/dashboard"
+              href="#"
               className="text-muted-foreground hover:text-foreground"
             >
               Orders
