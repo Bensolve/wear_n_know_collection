@@ -46,8 +46,8 @@ const Sidebar = () => {
               href="#"
               className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
             >
-              <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
-              <span className="sr-only">Acme Inc</span>
+              <Image src="/logo.png" width={28} height={28} alt="Logo" />
+              <span className="sr-only">Wear_n_know</span>
             </Link>
             <Link
               href="#"

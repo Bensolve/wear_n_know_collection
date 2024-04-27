@@ -8,19 +8,19 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 function Navbar() {
   return (
-     <header className="sticky top-0 flex justify-between h-16 z-40  items-center  border-b bg-background px-4 md:px-6 ">
-   
+    <header className="sticky top-0 flex justify-between h-16 z-40  items-center  border-b bg-background px-4 md:px-6 ">
+
       <div>
-      <Link
+        <Link
           href="#"
           className="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
-            <Image src="/logo.png" width={28} height={28} alt="Logo" />
-            Wear_n_know
+          <Image src="/logo.png" width={28} height={28} alt="Logo" />
+          Wear_n_know
         </Link>
       </div>
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-      
+
         <Link
           href="/dashboard"
           className="text-muted-foreground transition-colors hover:text-foreground"
@@ -69,8 +69,8 @@ function Navbar() {
               href="#"
               className="flex items-center gap-2 text-lg font-semibold"
             >
-               <Image src="/logo.png" width={28} height={28} alt="Logo" />
-           
+              <Image src="/logo.png" width={28} height={28} alt="Logo" />
+
               <span className="sr-only"> Wear_n_know</span>
             </Link>
             <Link
@@ -103,7 +103,7 @@ function Navbar() {
           </nav>
         </SheetContent>
       </Sheet>
-      
+
     </header>
   );
 }
